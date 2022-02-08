@@ -1,24 +1,19 @@
-#include "holberton.h"
-
+#include "_putchar"
 /**
-  * print_alphabet_x10 - Make alphabet x10 times
-  *
-  * Return: void
-  */
-void print_alphabet_x10(void)
+ *main - Entry point
+ *
+ *Return: always return 0;
+ *
+ */
+void 2-print_alphabet_x10(void)
 {
-	char c;
-	int i = 0;
+  char i;
+  char h;
 
-	while (i <= 9)
-	{
-		for (c = 'a'; c <= 'z'; c++)
-		{
-			_putchar(c);
-		}
+  for (h = 0; h <= 9; h++)
+    {
+      _putchar(i);
+    }
 
-		_putchar('\n');
-
-		i++;
-	}
+  _putchar('\n');
 }
