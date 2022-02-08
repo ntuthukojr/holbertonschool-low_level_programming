@@ -1,19 +1,20 @@
-#include "_putchar"
+#include "main.h"
+
 /**
- *main - Entry point
+ * print_alphabet_x10 - print alphabet 10 times
  *
- *Return: always return 0;
- *
+ * Description: print lowercase alphabet followed by newline 10 times
+ * Return: void
  */
-void 2-print_alphabet_x10(void)
+void print_alphabet_x10(void)
 {
-  char i;
-  char h;
+	int i;
+	int c;
 
-  for (h = 0; h <= 9; h++)
-    {
-      _putchar(i);
-    }
-
-  _putchar('\n');
+	for (i = 0; i < 10; ++i)
+	{
+		for (c = 'a'; c <= 'z'; ++c)
+			_putchar(c);
+		_putchar('\n');
+	}
 }
