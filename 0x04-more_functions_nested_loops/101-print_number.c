@@ -1,32 +1,34 @@
 #include "main.h"
 
 /**
- * print_number - takes an integer and prints it to the screen
+ * print_number - prints an integer on console
  * @n: number to be printed
  *
+ * Return: void, and the stated print
  */
 
 void print_number(int n)
 {
-	int digit, count, temp;
-
-	digit = n;
-	count = 0;
-
-	if (digit < 0)
+	if (n < 0)
 		_putchar('-');
-	for (temp = 1; digit > 9 || digit < -9; temp *= 10)
-	{
-		digit /= 10;
-		count++;
-	}
-	for (digit = n; count >= 0; count--)
-	{
-		if (digit / temp < 0)
-			_putchar(((digit / temp) * -1) + '0');
-		else
-			_putchar(digit / temp + '0');
-		digit %= temp;
-		temp /= 10;
-	}
+	print_any_int(n);
+}
+
+/**
+ * print_any_int - uses _putchar to print every digit of any int
+ * @m: input integer to be printed with _putchar
+ *
+ * Return: void, printing every digit of m into stdout
+ */
+void print_any_int(int m)
+{
+	int last;
+
+	if (m / 10)
+		print_any_int(m / 10);
+
+	last = m % 10;
+	if (last < 0)
+		last = last * -1;
+	_putchar(last + '0');
 }
