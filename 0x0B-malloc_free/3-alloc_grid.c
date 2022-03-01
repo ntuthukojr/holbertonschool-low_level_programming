@@ -1,40 +1,43 @@
 #include "main.h"
 
 /**
- * alloc_grid - create a 2-dimensional array with each element set to 0
- * @width: desired number of columns
- * @height: desired number of rows
+ * alloc_grid - returns a pointer to a 2 dimensional array of integers
+ * @width: width of the array
+ * @height: height of the array
  *
- * Return: NULL if memory allocation fails or any argument is less than 1,
- * otherwise return a pointer to the first element of the array.
+ * Return: a pointer to a 2 dimensional array of integers
  */
 int **alloc_grid(int width, int height)
 {
-	int **matrix, row, column;
+	int a, b, **net;
 
-	if (width < 1 || height < 1)
-		return (NULL);
-
-	matrix = (int **) malloc(sizeof(int *) * height);
-
-	if (!matrix)
-		return (NULL);
-
-	for (row = 0; row < height; ++row)
+	if (width <= 0 || height <= 0)
 	{
-		matrix[row] = (int *) malloc(sizeof(int) * width);
-
-		if (!matrix[row])
-		{
-			while (--row > -1)
-				free(matrix[row]);
-			free(matrix);
-			return (NULL);
-		}
-
-		for (column = 0; column < width; ++column)
-			matrix[row][column] = 0;
+		return ('\0');
 	}
 
-	return (matrix);
+	net = malloc(sizeof(int *) * height);
+
+	if (net == NULL)
+	{
+		return (NULL);
+	}
+	for (a = 0 ; a < height ; a++)
+	{
+		net[a] = malloc(sizeof(int) * width);
+		if (net[a] == NULL)
+		{
+			for (a = a - 1; a >= 0 ; a--)
+			{
+				free(net[a]);
+			}
+			free(net);
+			return (NULL);
+		}
+		for (b = 0 ; b < width ; b++)
+		{
+			net[a][b] = 0;
+		}
+	}
+	return (net);
 }
