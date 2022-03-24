@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  *binary_to_uint - convert binary to integer
 *@b:binary number
@@ -31,4 +32,3 @@ unsigned int binary_to_uint(const char *b)
 	}
 	return (i);
 	}
-    
